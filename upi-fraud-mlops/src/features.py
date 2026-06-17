@@ -37,6 +37,7 @@ class BalanceErrorFeatures(BaseEstimator, TransformerMixin):
     """
 
     def fit(self, X, y=None):
+        self.is_fitted_ = True
         return self
 
     def transform(self, X: pd.DataFrame) -> pd.DataFrame:
@@ -64,6 +65,7 @@ class ZeroBalanceFlags(BaseEstimator, TransformerMixin):
     """
 
     def fit(self, X, y=None):
+        self.is_fitted_ = True
         return self
 
     def transform(self, X: pd.DataFrame) -> pd.DataFrame:
@@ -85,6 +87,7 @@ class LogAmountTransform(BaseEstimator, TransformerMixin):
     """
 
     def fit(self, X, y=None):
+        self.is_fitted_ = True
         return self
 
     def transform(self, X: pd.DataFrame) -> pd.DataFrame:
@@ -111,6 +114,7 @@ class DropColumns(BaseEstimator, TransformerMixin):
         ]
 
     def fit(self, X, y=None):
+        self.is_fitted_ = True
         return self
 
     def transform(self, X: pd.DataFrame) -> pd.DataFrame:
@@ -137,6 +141,7 @@ class TypeEncoder(BaseEstimator, TransformerMixin):
     KNOWN_TYPES = ["CASH_IN", "CASH_OUT", "DEBIT", "PAYMENT", "TRANSFER"]
 
     def fit(self, X, y=None):
+        self.is_fitted_ = True
         return self
 
     def transform(self, X: pd.DataFrame) -> pd.DataFrame:

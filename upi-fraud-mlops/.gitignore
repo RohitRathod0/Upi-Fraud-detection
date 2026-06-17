@@ -1,0 +1,35 @@
+# Environments
+venv/
+env/
+.env
+
+# Python caching
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Data and Databases
+data/*.csv
+data/*.db
+data/*.parquet
+data/drift_reports/*.html
+
+# Models (often too large for Git)
+models/*.pkl
+models/*.png
+
+# MLflow tracking
+mlruns/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# IDEs and OS
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+monitoring/alerts.log
+*.log
