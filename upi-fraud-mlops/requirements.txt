@@ -1,0 +1,24 @@
+# UPI Fraud Detection MLOps – Python Dependencies
+# Pin major versions for reproducibility; minor updates are safe.
+
+# Core ML
+lightgbm>=4.3.0
+scikit-learn>=1.4.0
+optuna>=3.6.0
+
+# Data
+pandas>=2.2.0
+numpy>=1.26.0
+
+# Explainability
+shap>=0.45.0
+
+# Persistence
+joblib>=1.3.0
+
+# Plotting (evaluate.py)
+matplotlib>=3.8.0
+
+# Utilities
+scipy>=1.13.0
+tqdm>=4.66.0
