@@ -1,0 +1,51 @@
+version: "3.9"
+
+networks:
+  fraud-net:
+    driver: bridge
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./mlruns:/app/mlruns
+    networks:
+      - fraud-net
+    restart: unless-stopped
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.dashboard
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8000
+    depends_on:
+      - api
+    networks:
+      - fraud-net
+    restart: unless-stopped
+
+  mlflow:
+    image: python:3.11-slim
+    working_dir: /mlruns
+    volumes:
+      - ./mlruns:/mlruns
+    ports:
+      - "5000:5000"
+    command: >
+      sh -c "pip install mlflow --quiet &&
+             mlflow server
+             --backend-store-uri sqlite:///mlruns/mlflow.db
+             --default-artifact-root /mlruns/artifacts
+             --host 0.0.0.0
+             --port 5000"
+    networks:
+      - fraud-net
+    restart: unless-stopped
