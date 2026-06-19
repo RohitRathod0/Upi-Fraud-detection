@@ -21,6 +21,7 @@ models/*.png
 
 # MLflow tracking
 mlruns/
+mlflow.db
 
 # Jupyter Notebooks
 .ipynb_checkpoints/

@@ -12,6 +12,7 @@ import sqlite3
 from fastapi import FastAPI
 from api.schemas import TransactionInput, ScoreResponse
 from api import predictor
+from api import drift_router
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 DB_PATH = os.path.join(PROJECT_ROOT, "data", "predictions.db")
@@ -40,6 +41,7 @@ app = FastAPI(
     title="UPI Fraud Detection API",
     version="1.0.0",
 )
+app.include_router(drift_router.router, prefix="/drift")
 
 
 @app.get("/health")

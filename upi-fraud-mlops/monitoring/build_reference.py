@@ -55,7 +55,7 @@ def main():
     ]).sample(frac=1, random_state=42).reset_index(drop=True)
 
     sample.to_parquet(OUT_PATH, index=False)
-    print(f"Saved → {OUT_PATH}  ({len(sample):,} rows, fraud: {sample['isFraud'].mean()*100:.2f}%)")
+    print(f"Saved -> {OUT_PATH}  ({len(sample):,} rows, fraud: {sample['isFraud'].mean()*100:.2f}%)")
 
 
 if __name__ == "__main__":
