@@ -48,7 +48,7 @@ Services start at:
 |---------|-----|
 | FastAPI | http://localhost:8000/docs |
 | Streamlit | http://localhost:8501 |
-| MLflow UI | http://localhost:5000 |
+| MLflow UI | http://localhost:5001 |
 
 ---
 
