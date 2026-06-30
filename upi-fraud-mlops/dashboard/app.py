@@ -27,7 +27,7 @@ PROJECT_ROOT  = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 API_BASE_URL   = os.getenv("API_URL", "http://localhost:8000")
-MLFLOW_DB_URI  = f"sqlite:///{PROJECT_ROOT / 'mlflow.db'}"
+MLFLOW_DB_URI  = f"sqlite:///{PROJECT_ROOT / 'mlruns' / 'mlflow.db'}"
 EXPERIMENT     = "upi-fraud-detection"
 
 st.set_page_config(page_title="UPI Fraud Detection", page_icon="🛡️", layout="wide")
@@ -109,10 +109,7 @@ with tab2:
             ]
             df = pd.DataFrame(rows).sort_values("Drift Score", ascending=False)
             st.dataframe(
-                df.style.applymap(
-                    lambda v: "background-color: #ffe0e0" if v is True else "",
-                    subset=["Drifted"],
-                ),
+                df,
                 use_container_width=True,
             )
             st.caption(f"Last run: {data['run_timestamp']}")

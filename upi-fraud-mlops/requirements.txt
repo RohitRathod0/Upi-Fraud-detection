@@ -29,7 +29,7 @@ uvicorn[standard]>=0.29.0
 pydantic>=2.6.0
 
 # Phase 3 – Drift detection
-evidently>=0.4.0
+evidently==0.6.7
 
 # Phase 4 – Experiment tracking
 mlflow>=2.11.0

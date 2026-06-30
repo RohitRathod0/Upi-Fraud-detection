@@ -64,6 +64,23 @@ Services start at:
 
 ---
 
+## AWS EC2 Deployment
+
+An automated deployment script is provided to spin up the entire stack on an AWS EC2 instance (Ubuntu).
+
+1. Launch an Ubuntu EC2 instance.
+2. In your AWS Security Group, open inbound ports: **8000** (FastAPI), **8501** (Streamlit), **5001** (MLflow), and **22** (SSH).
+3. SSH into your instance, clone this repository, and run the deployment script:
+
+```bash
+git clone https://github.com/RohitRathod0/Upi-Fraud-detection.git
+cd Upi-Fraud-detection/upi-fraud-mlops
+chmod +x deploy_ec2.sh
+./deploy_ec2.sh
+```
+
+---
+
 ## Project Structure
 
 ```
@@ -82,7 +99,3 @@ upi-fraud-mlops/
 
 ## Resume Bullets
 
-- Built a production-grade UPI fraud detection pipeline with LightGBM (PR-AUC 0.917) by engineering 14 balance-consistency features and tuning with Optuna, resulting in 84% recall at 0.3 threshold on 6M+ PaySim transactions
-- Implemented real-time data drift monitoring with Evidently AI by comparing live prediction distributions against a 10K stratified reference set, resulting in a FastAPI `/drift-report` endpoint with 1-hour caching and `ok/warning/critical` alerting
-- Integrated SHAP explainability into a FastAPI serving layer by loading a TreeExplainer at startup and returning top-3 feature contributions per prediction, enabling auditable fraud decisions in production
-- Containerized the full MLOps stack (FastAPI + Streamlit + MLflow) using Docker Compose with isolated networking, achieving one-command deployment and reproducible environments across dev and production

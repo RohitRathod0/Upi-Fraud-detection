@@ -13,7 +13,7 @@ import mlflow.sklearn
 from mlflow.tracking import MlflowClient
 
 PROJECT_ROOT  = Path(__file__).resolve().parent.parent
-TRACKING_URI  = f"sqlite:///{PROJECT_ROOT / 'mlflow.db'}"
+TRACKING_URI  = f"sqlite:///{PROJECT_ROOT / 'mlruns' / 'mlflow.db'}"
 REGISTRY_NAME = "upi-fraud-lgbm"
 
 
