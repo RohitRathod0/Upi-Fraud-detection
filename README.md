@@ -97,5 +97,5 @@ upi-fraud-mlops/
 
 ---
 
-## Resume Bullets
+
 
